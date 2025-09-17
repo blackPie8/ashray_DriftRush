@@ -1,10 +1,14 @@
+using System;
 using UnityEngine;
 
 public class CarMovement : MonoBehaviour
 {
-    public float acceleration = 10f;
+    private float acceleration = 20f;
     public float maxSpeed = 50f;
-    public float turnSpeed = 150f;
+    private float turnSpeed = 50f;
+    public ParticleSystem leftTireSmoke;
+    public ParticleSystem rightTireSmoke;
+
     Rigidbody rb;
 
     void Start()
@@ -13,13 +17,24 @@ public class CarMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
+        var emissionLeft = leftTireSmoke.emission;
+        var emissionRight = rightTireSmoke.emission;
+
+        float baseRate = 20f;
+
+        float speedFactor = rb.linearVelocity.magnitude / baseRate;
+
+        emissionLeft.rateOverTime = baseRate * speedFactor;
+        emissionRight.rateOverTime = baseRate * speedFactor;
+
         float vertical = Input.GetAxis("Vertical");
         float horizontal = Input.GetAxis("Horizontal");
 
         Vector3 force = transform.forward * vertical * acceleration;
+
         rb.AddForce(force, ForceMode.Acceleration);
 
-           if (rb.linearVelocity.magnitude > maxSpeed)
+        if (rb.linearVelocity.magnitude > maxSpeed)
         {
             rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
         }
@@ -30,5 +45,17 @@ public class CarMovement : MonoBehaviour
             Quaternion turnRotation = Quaternion.Euler(0f, turn, 0f);
             rb.MoveRotation(rb.rotation * turnRotation);
         }
-  }
+
+
+        if (Math.Abs(horizontal) > 0.5f)
+        {
+            leftTireSmoke.Play();
+            rightTireSmoke.Play();
+        }
+        else
+        {
+            leftTireSmoke.Stop();
+            rightTireSmoke.Stop();
+        }
+    }
 }
