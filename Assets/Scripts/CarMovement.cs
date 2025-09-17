@@ -6,8 +6,11 @@ public class CarMovement : MonoBehaviour
     private float acceleration = 20f;
     public float maxSpeed = 50f;
     private float turnSpeed = 50f;
-    public ParticleSystem leftTireSmoke;
-    public ParticleSystem rightTireSmoke;
+    public ParticleSystem leftRTireSmoke;
+    public ParticleSystem rightRTireSmoke;
+
+    public TrailRenderer leftRTireTrail;
+    public TrailRenderer rightRTireTrail;
 
     Rigidbody rb;
 
@@ -17,8 +20,8 @@ public class CarMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
-        var emissionLeft = leftTireSmoke.emission;
-        var emissionRight = rightTireSmoke.emission;
+        var emissionLeft = leftRTireSmoke.emission;
+        var emissionRight = rightRTireSmoke.emission;
 
         float baseRate = 20f;
 
@@ -46,16 +49,23 @@ public class CarMovement : MonoBehaviour
             rb.MoveRotation(rb.rotation * turnRotation);
         }
 
+        bool isSkidding = Math.Abs(horizontal) > 0.5f;
 
-        if (Math.Abs(horizontal) > 0.5f)
+        if (isSkidding)
         {
-            leftTireSmoke.Play();
-            rightTireSmoke.Play();
+            leftRTireSmoke.Play();
+            rightRTireSmoke.Play();
+
+            leftRTireTrail.emitting = true;
+            rightRTireTrail.emitting = true;
         }
         else
         {
-            leftTireSmoke.Stop();
-            rightTireSmoke.Stop();
+            leftRTireSmoke.Stop();
+            rightRTireSmoke.Stop();
+
+            leftRTireTrail.emitting = false;
+            rightRTireTrail.emitting = false;
         }
     }
 }

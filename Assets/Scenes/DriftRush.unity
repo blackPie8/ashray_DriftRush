@@ -4682,6 +4682,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8532558548474386230, guid: afaacd27faf02447f9fef41b7154ae21, type: 3}
+      propertyPath: m_Emitting
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8532558548474386230, guid: afaacd27faf02447f9fef41b7154ae21, type: 3}
       propertyPath: m_PreviewTimeScale
       value: 1
       objectReference: {fileID: 0}
@@ -4698,6 +4702,11 @@ Transform:
 --- !u!4 &641270053 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5203251752858336892, guid: afaacd27faf02447f9fef41b7154ae21, type: 3}
+  m_PrefabInstance: {fileID: 632619647}
+  m_PrefabAsset: {fileID: 0}
+--- !u!96 &641270054 stripped
+TrailRenderer:
+  m_CorrespondingSourceObject: {fileID: 8532558548474386230, guid: afaacd27faf02447f9fef41b7154ae21, type: 3}
   m_PrefabInstance: {fileID: 632619647}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &648305336
@@ -12157,8 +12166,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CarMovement
   maxSpeed: 50
-  leftTireSmoke: {fileID: 57496266}
-  rightTireSmoke: {fileID: 561136888}
+  leftRTireSmoke: {fileID: 57496266}
+  rightRTireSmoke: {fileID: 561136888}
+  leftRTireTrail: {fileID: 1694192254}
+  rightRTireTrail: {fileID: 641270054}
 --- !u!1001 &1528417065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13055,6 +13066,11 @@ Transform:
 --- !u!4 &1694192253 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5203251752858336892, guid: afaacd27faf02447f9fef41b7154ae21, type: 3}
+  m_PrefabInstance: {fileID: 6246228393177244117}
+  m_PrefabAsset: {fileID: 0}
+--- !u!96 &1694192254 stripped
+TrailRenderer:
+  m_CorrespondingSourceObject: {fileID: 8532558548474386230, guid: afaacd27faf02447f9fef41b7154ae21, type: 3}
   m_PrefabInstance: {fileID: 6246228393177244117}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1705378765
@@ -16488,6 +16504,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5203251752858336892, guid: afaacd27faf02447f9fef41b7154ae21, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8532558548474386230, guid: afaacd27faf02447f9fef41b7154ae21, type: 3}
+      propertyPath: m_Emitting
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
