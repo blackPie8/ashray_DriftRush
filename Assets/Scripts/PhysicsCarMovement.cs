@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PhysicsCarMovement : MonoBehaviour
@@ -11,6 +12,8 @@ public class PhysicsCarMovement : MonoBehaviour
     [SerializeField] private Transform rearLeftWheelTransform;
     [SerializeField] private Transform frontLeftWheelTransform;
     [SerializeField] private Transform carCentreOfMassTransform;
+    [SerializeField] private TrailRenderer rearLeftTrailRenderer;
+    [SerializeField] private TrailRenderer rearRightTrailRenderer;
     [SerializeField] private float motorForce = 300f;
     [SerializeField] private float steerAngle = 30f;
     [SerializeField] private float brakeForce = 1000f;
@@ -31,6 +34,7 @@ public class PhysicsCarMovement : MonoBehaviour
         GetInput();
         Steering();
         ApplyBrakes();
+        CheckDrift();
     }
 
     void GetInput()
@@ -89,5 +93,20 @@ public class PhysicsCarMovement : MonoBehaviour
     {
         float speed = rb.linearVelocity.magnitude * 2.23693629f;
         return speed;
+    }
+
+    void CheckDrift()
+    {
+        WheelHit leftHit;
+        WheelHit rightHit;
+
+        if (rearLeftWheelCollider.GetGroundHit(out leftHit) && rearRightWheelCollider.GetGroundHit(out rightHit))
+        {
+            bool leftDrifting = Math.Abs(leftHit.sidewaysSlip) > 0.2f;
+            bool rightDrifting = Math.Abs(rightHit.sidewaysSlip) > 0.2f;
+
+            rearLeftTrailRenderer.emitting = leftDrifting;
+            rearRightTrailRenderer.emitting = rightDrifting;
+        }
     }
 }
