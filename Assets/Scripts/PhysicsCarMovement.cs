@@ -2,26 +2,25 @@ using UnityEngine;
 
 public class PhysicsCarMovement : MonoBehaviour
 {
-    public WheelCollider frontRightWheelCollider;
-    public WheelCollider rearRightWheelCollider;
-    public WheelCollider frontLeftWheelCollider;
-    public WheelCollider rearLeftWheelCollider;
-
-    public Transform frontRightWheelTransform;
-    public Transform rearRightWheelTransform;
-    public Transform rearLeftWheelTransform;
-    public Transform frontLeftWheelTransform;
-
-    public Transform carCentreOfMassTransform;
-    public Rigidbody rb;
+    [SerializeField] private WheelCollider rearRightWheelCollider;
+    [SerializeField] private WheelCollider frontLeftWheelCollider;
+    [SerializeField] private WheelCollider rearLeftWheelCollider;
+    [SerializeField] private Transform frontRightWheelTransform;
+    [SerializeField] private WheelCollider frontRightWheelCollider;
+    [SerializeField] private Transform rearRightWheelTransform;
+    [SerializeField] private Transform rearLeftWheelTransform;
+    [SerializeField] private Transform frontLeftWheelTransform;
+    [SerializeField] private Transform carCentreOfMassTransform;
+    [SerializeField] private float motorForce = 300f;
+    [SerializeField] private float steerAngle = 30f;
+    [SerializeField] private float brakeForce = 1000f;
+    private Rigidbody rb;
     float verticalInput;
     float horizontalInput;
-    public float motorForce = 300f;
-    public float steerAngle = 30f;
-    public float brakeForce = 1000f;
 
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
         rb.centerOfMass = carCentreOfMassTransform.localPosition;
     }
 
@@ -48,6 +47,7 @@ public class PhysicsCarMovement : MonoBehaviour
             frontLeftWheelCollider.brakeTorque = brakeForce;
             rearLeftWheelCollider.brakeTorque = brakeForce;
             rearRightWheelCollider.brakeTorque = brakeForce;
+            rb.linearDamping = 1f;
         }
         else
         {
@@ -55,6 +55,7 @@ public class PhysicsCarMovement : MonoBehaviour
             frontLeftWheelCollider.brakeTorque = 0f;
             rearLeftWheelCollider.brakeTorque = 0f;
             rearRightWheelCollider.brakeTorque = 0f;
+            rb.linearDamping = 0f;
         }
     }
     void MotorForce()
@@ -83,5 +84,10 @@ public class PhysicsCarMovement : MonoBehaviour
         wheelCollider.GetWorldPose(out pos, out rot);
         transform.position = pos;
         transform.rotation = rot;
+    }
+    public float CarSpeed()
+    {
+        float speed = rb.linearVelocity.magnitude * 2.23693629f;
+        return speed;
     }
 }
