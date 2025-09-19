@@ -14,6 +14,8 @@ public class PhysicsCarMovement : MonoBehaviour
     [SerializeField] private Transform carCentreOfMassTransform;
     [SerializeField] private TrailRenderer rearLeftTrailRenderer;
     [SerializeField] private TrailRenderer rearRightTrailRenderer;
+    [SerializeField] private ParticleSystem rearLeftParticleSystem;
+    [SerializeField] private ParticleSystem rearRightParticleSystem;
     [SerializeField] private float motorForce = 300f;
     [SerializeField] private float steerAngle = 30f;
     [SerializeField] private float brakeForce = 1000f;
@@ -107,6 +109,35 @@ public class PhysicsCarMovement : MonoBehaviour
 
             rearLeftTrailRenderer.emitting = leftDrifting;
             rearRightTrailRenderer.emitting = rightDrifting;
+
+            if (leftDrifting && rightDrifting)
+            {
+                if (!rearLeftParticleSystem.isPlaying)
+                    rearLeftParticleSystem.Play();
+
+                if (!rearRightParticleSystem.isPlaying)
+                {
+                    rearRightParticleSystem.Play();
+                }
+            }
+            else
+            {
+                if (rearLeftParticleSystem.isPlaying)
+                {
+                    rearLeftParticleSystem.Stop();
+                }
+                if (rearRightParticleSystem.isPlaying)
+                {
+                    rearRightParticleSystem.Stop();
+                }
+            }
+        }
+        else
+        {
+            rearLeftTrailRenderer.emitting = false;
+            rearRightTrailRenderer.emitting = false;
+            rearLeftParticleSystem.Stop();
+            rearRightParticleSystem.Stop();
         }
     }
 }
