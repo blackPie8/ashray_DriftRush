@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1213606010972665365}
   - component: {fileID: 9202037589573835515}
   m_Layer: 0
-  m_Name: RearLeftSmoke
+  m_Name: Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

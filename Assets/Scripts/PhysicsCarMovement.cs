@@ -31,9 +31,9 @@ public class PhysicsCarMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        GetInput();
         MotorForce();
         UpdateWheels();
-        GetInput();
         Steering();
         ApplyBrakes();
         CheckDrift();
