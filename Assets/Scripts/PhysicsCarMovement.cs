@@ -93,7 +93,7 @@ public class PhysicsCarMovement : MonoBehaviour
     }
     public float CarSpeed()
     {
-        float speed = rb.linearVelocity.magnitude * 2.23693629f;
+        float speed = rb.linearVelocity.magnitude * 3.6f;
         return speed;
     }
 

@@ -49,6 +49,11 @@ public class LapManager : MonoBehaviour
             OnLapFinish();
         }
 
+        if (!isCircuit && lastCheckpointIdx == checkpoints.Length - 1 && checkpointIdx == 0)
+        {
+            EndRace();
+        }
+
         if (checkpointIdx == (lastCheckpointIdx + 1) % checkpoints.Length)
         {
             lastCheckpointIdx = checkpointIdx;
