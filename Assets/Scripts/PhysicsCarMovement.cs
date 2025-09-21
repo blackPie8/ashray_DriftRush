@@ -93,6 +93,8 @@ public class PhysicsCarMovement : MonoBehaviour
     }
     public float CarSpeed()
     {
+        if (rb == null) return 0f;
+
         float speed = rb.linearVelocity.magnitude * 3.6f;
         return speed;
     }
@@ -101,6 +103,8 @@ public class PhysicsCarMovement : MonoBehaviour
     {
         WheelHit leftHit;
         WheelHit rightHit;
+
+        if (rearLeftTrailRenderer == null || rearRightTrailRenderer == null) return;
 
         if (rearLeftWheelCollider.GetGroundHit(out leftHit) && rearRightWheelCollider.GetGroundHit(out rightHit))
         {

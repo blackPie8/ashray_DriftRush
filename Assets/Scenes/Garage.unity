@@ -362,6 +362,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1707859543}
     m_Modifications:
+    - target: {fileID: -8119495536881403525, guid: eebfba6516426485cb3c4b2f86047dfa, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1997615223918851248, guid: eebfba6516426485cb3c4b2f86047dfa, type: 3}
       propertyPath: m_Name
       value: Car (2)
@@ -372,7 +376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5000757976244654858, guid: eebfba6516426485cb3c4b2f86047dfa, type: 3}
       propertyPath: m_IsKinematic
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7447918394178866932, guid: eebfba6516426485cb3c4b2f86047dfa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -585,7 +589,7 @@ Transform:
   m_GameObject: {fileID: 706085871}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.6, y: 0.1, z: 0.5}
+  m_LocalPosition: {x: 0.6, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1077,6 +1081,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1025184929}
   m_CullTransparentMesh: 1
+--- !u!96 &1138872610 stripped
+TrailRenderer:
+  m_CorrespondingSourceObject: {fileID: 3945532347342378169, guid: a1353c96ad5a74122b4b57d9100bc14c, type: 3}
+  m_PrefabInstance: {fileID: 1859093599}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1227232386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1087,6 +1096,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 764700295058374488, guid: 0c045f69d34d44ebfb058a32cb95c676, type: 3}
       propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2945617725170095243, guid: 0c045f69d34d44ebfb058a32cb95c676, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5238871121159316283, guid: 0c045f69d34d44ebfb058a32cb95c676, type: 3}
@@ -1269,6 +1282,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1707859543}
     m_Modifications:
+    - target: {fileID: 1139355004085953069, guid: a0564fc96a0d34492865b3ee2ad92342, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3627642165892822060, guid: a0564fc96a0d34492865b3ee2ad92342, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.30252004
@@ -1316,6 +1333,10 @@ PrefabInstance:
     - target: {fileID: 5933061144517027460, guid: a0564fc96a0d34492865b3ee2ad92342, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118584538122422266, guid: a0564fc96a0d34492865b3ee2ad92342, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1507,6 +1528,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1707859543}
     m_Modifications:
+    - target: {fileID: 2607870668701317431, guid: 06f59e158209b42a7afcdf026a2ace28, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6845275598834938697, guid: 06f59e158209b42a7afcdf026a2ace28, type: 3}
       propertyPath: m_Name
       value: Car (4)
@@ -1554,6 +1579,10 @@ PrefabInstance:
     - target: {fileID: 6886238124310385349, guid: 06f59e158209b42a7afcdf026a2ace28, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246387491612939847, guid: 06f59e158209b42a7afcdf026a2ace28, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1674,6 +1703,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1707859543}
     m_Modifications:
+    - target: {fileID: -5070284048725379272, guid: a1353c96ad5a74122b4b57d9100bc14c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -5070284048725379272, guid: a1353c96ad5a74122b4b57d9100bc14c, type: 3}
+      propertyPath: rearLeftTrailRenderer
+      value: 
+      objectReference: {fileID: 1138872610}
+    - target: {fileID: -5070284048725379272, guid: a1353c96ad5a74122b4b57d9100bc14c, type: 3}
+      propertyPath: rearRightTrailRenderer
+      value: 
+      objectReference: {fileID: 1906761648}
     - target: {fileID: 2649724868395026738, guid: a1353c96ad5a74122b4b57d9100bc14c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.30252004
@@ -1724,13 +1765,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8980988639348876029, guid: a1353c96ad5a74122b4b57d9100bc14c, type: 3}
       propertyPath: m_IsKinematic
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1353c96ad5a74122b4b57d9100bc14c, type: 3}
+--- !u!96 &1906761648 stripped
+TrailRenderer:
+  m_CorrespondingSourceObject: {fileID: 7411332140329512042, guid: a1353c96ad5a74122b4b57d9100bc14c, type: 3}
+  m_PrefabInstance: {fileID: 1859093599}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2048029365
 GameObject:
   m_ObjectHideFlags: 0

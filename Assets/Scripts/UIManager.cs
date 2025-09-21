@@ -4,12 +4,20 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI speedValue;
     [SerializeField] TextMeshProUGUI currentLap;
-    [SerializeField] PhysicsCarMovement carMovement;
+    private PhysicsCarMovement carMovement;
     private float speed = 0f;
     private int currentLapVal;
     private int totalLaps;
 
-    void Update()
+
+  void Start()
+  {
+        if (carMovement == null)
+        {
+        carMovement = FindAnyObjectByType<PhysicsCarMovement>();
+    }
+  }
+  void Update()
     {
         SpeedUI();
         LapUI();
