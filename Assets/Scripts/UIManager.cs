@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         SpeedUI();
-        LapGUI();
+        LapUI();
     }
 
     void SpeedUI()
@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
         speedValue.text = speed.ToString("0" + "km/h");
     }
 
-    void LapGUI()
+    void LapUI()
     {
         totalLaps = LapManager.Instance.GetTotalLaps();
         currentLapVal = LapManager.Instance.GetCurrentLap();

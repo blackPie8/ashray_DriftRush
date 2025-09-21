@@ -6,8 +6,8 @@ public class PhysicsCarMovement : MonoBehaviour
     [SerializeField] private WheelCollider rearRightWheelCollider;
     [SerializeField] private WheelCollider frontLeftWheelCollider;
     [SerializeField] private WheelCollider rearLeftWheelCollider;
-    [SerializeField] private Transform frontRightWheelTransform;
     [SerializeField] private WheelCollider frontRightWheelCollider;
+    [SerializeField] private Transform frontRightWheelTransform;
     [SerializeField] private Transform rearRightWheelTransform;
     [SerializeField] private Transform rearLeftWheelTransform;
     [SerializeField] private Transform frontLeftWheelTransform;
