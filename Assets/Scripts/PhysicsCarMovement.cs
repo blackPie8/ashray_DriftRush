@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class PhysicsCarMovement : MonoBehaviour
 {
+    public static PhysicsCarMovement Instance { get; private set; }
+    public delegate void CarStoppedHandler();
+    public event CarStoppedHandler OnCarStopped;
+
     [SerializeField] private WheelCollider rearRightWheelCollider;
     [SerializeField] private WheelCollider frontLeftWheelCollider;
     [SerializeField] private WheelCollider rearLeftWheelCollider;
@@ -19,9 +23,23 @@ public class PhysicsCarMovement : MonoBehaviour
     [SerializeField] private float motorForce = 300f;
     [SerializeField] private float steerAngle = 30f;
     [SerializeField] private float brakeForce = 1000f;
+    [SerializeField] private float endRaceBrakeForce = 7f;
+    private bool isBraking = false;
     private Rigidbody rb;
     float verticalInput;
     float horizontalInput;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
@@ -37,6 +55,11 @@ public class PhysicsCarMovement : MonoBehaviour
         Steering();
         ApplyBrakes();
         CheckDrift();
+
+        if (isBraking)
+        {
+            SlowDownCar();
+        }
     }
 
     void GetInput()
@@ -104,7 +127,7 @@ public class PhysicsCarMovement : MonoBehaviour
         WheelHit leftHit;
         WheelHit rightHit;
 
-        if (rearLeftTrailRenderer == null || rearRightTrailRenderer == null) return;
+        // if (rearLeftTrailRenderer == null || rearRightTrailRenderer == null) return;
 
         if (rearLeftWheelCollider.GetGroundHit(out leftHit) && rearRightWheelCollider.GetGroundHit(out rightHit))
         {
@@ -143,5 +166,23 @@ public class PhysicsCarMovement : MonoBehaviour
             rearLeftParticleSystem.Stop();
             rearRightParticleSystem.Stop();
         }
+    }
+
+    void SlowDownCar()
+    {
+        rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, Vector3.zero, endRaceBrakeForce * Time.fixedDeltaTime);
+
+        if (rb.linearVelocity.magnitude < 0.1f)
+        {
+            rb.linearVelocity = Vector3.zero;
+            isBraking = false;
+
+            OnCarStopped?.Invoke();
+        }
+    }
+
+    public void StartBraking()
+    {
+        isBraking = true;
     }
 }

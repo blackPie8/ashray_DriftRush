@@ -314,7 +314,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5238602533892101220}
+  - {fileID: 8733801620392775256}
   m_Father: {fileID: 1065822922442560287}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!146 &6410846032470084999
@@ -533,7 +533,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2649724868395026738
 Transform:
   m_ObjectHideFlags: 0
@@ -604,13 +604,14 @@ MonoBehaviour:
   rearLeftWheelTransform: {fileID: 3662226803442791371}
   frontLeftWheelTransform: {fileID: 1781036790330680761}
   carCentreOfMassTransform: {fileID: 4105918861881273389}
-  rearLeftTrailRenderer: {fileID: 825384285768859897}
-  rearRightTrailRenderer: {fileID: 6588578452726626346}
+  rearLeftTrailRenderer: {fileID: 0}
+  rearRightTrailRenderer: {fileID: 0}
   rearLeftParticleSystem: {fileID: 740794561449427999}
   rearRightParticleSystem: {fileID: 8937829453899470295}
   motorForce: 300
   steerAngle: 30
   brakeForce: 1000
+  endRaceBrakeForce: 7
 --- !u!1 &5623090492661511691
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,7 +909,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1776756556826209463}
+  - {fileID: 2967799448154896011}
   m_Father: {fileID: 1065822922442560287}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!146 &4337175810697945115
@@ -1160,14 +1161,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afaacd27faf02447f9fef41b7154ae21, type: 3}
---- !u!96 &825384285768859897 stripped
-TrailRenderer:
-  m_CorrespondingSourceObject: {fileID: 44410868963769794, guid: afaacd27faf02447f9fef41b7154ae21, type: 3}
-  m_PrefabInstance: {fileID: 858390727928921403}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5238602533892101220 stripped
+--- !u!4 &8733801620392775256 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4853434464827124063, guid: afaacd27faf02447f9fef41b7154ae21, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8276824043186762595, guid: afaacd27faf02447f9fef41b7154ae21, type: 3}
   m_PrefabInstance: {fileID: 858390727928921403}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1914113980644848138
@@ -1302,14 +1298,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afaacd27faf02447f9fef41b7154ae21, type: 3}
---- !u!4 &1776756556826209463 stripped
+--- !u!4 &2967799448154896011 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4853434464827124063, guid: afaacd27faf02447f9fef41b7154ae21, type: 3}
-  m_PrefabInstance: {fileID: 6625518817693943272}
-  m_PrefabAsset: {fileID: 0}
---- !u!96 &6588578452726626346 stripped
-TrailRenderer:
-  m_CorrespondingSourceObject: {fileID: 44410868963769794, guid: afaacd27faf02447f9fef41b7154ae21, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8276824043186762595, guid: afaacd27faf02447f9fef41b7154ae21, type: 3}
   m_PrefabInstance: {fileID: 6625518817693943272}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7844730365124961218

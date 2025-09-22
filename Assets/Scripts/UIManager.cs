@@ -2,25 +2,44 @@ using UnityEngine;
 using TMPro;
 public class UIManager : MonoBehaviour
 {
+    public static UIManager Instance { get; private set; }
     [SerializeField] TextMeshProUGUI speedValue;
     [SerializeField] TextMeshProUGUI currentLap;
+    [SerializeField] TextMeshProUGUI raceTime;
+    [SerializeField] TextMeshProUGUI displayTime;
+    [SerializeField] private GameObject Panel;
     private PhysicsCarMovement carMovement;
     private float speed = 0f;
     private int currentLapVal;
     private int totalLaps;
+    private float totalTime = 0f;
 
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    void Start()
+    {
+        Panel.SetActive(false);
 
-  void Start()
-  {
         if (carMovement == null)
         {
-        carMovement = FindAnyObjectByType<PhysicsCarMovement>();
+            carMovement = FindAnyObjectByType<PhysicsCarMovement>();
+        }
+
     }
-  }
-  void Update()
+    void Update()
     {
         SpeedUI();
         LapUI();
+        TimeUI();
     }
 
     void SpeedUI()
@@ -35,5 +54,17 @@ public class UIManager : MonoBehaviour
         currentLapVal = LapManager.Instance.GetCurrentLap();
 
         currentLap.text = currentLapVal.ToString() + " / " + totalLaps.ToString();
+    }
+
+    void TimeUI()
+    {
+        totalTime = LapManager.Instance.GetTotalTime();
+        raceTime.text = totalTime.ToString("F2") + "sec";
+        displayTime.text = totalTime.ToString("F2") + "sec";
+    }
+
+    public void ShowEndRacePanel()
+    {
+        Panel.SetActive(true);
     }
 }

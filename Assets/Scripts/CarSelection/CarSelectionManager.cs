@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,21 +6,38 @@ public class CarSelectionManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] cars;
     [SerializeField] private Transform carDisplayPoint;
-
+    private float rotationSpeed = 50f;
     private int selectedCarIndex = 0;
     private GameObject currentCar;
 
-  void Start()
-  {
-    ShowCar(selectedCarIndex);
-  }
-  public void ShowCar(int index)
+    void Start()
+    {
+        ShowCar(selectedCarIndex);
+    }
+
+    void Update()
     {
         if (currentCar != null)
         {
-            Destroy(currentCar);
+            currentCar.transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
         }
+    }
+    public void ShowCar(int index)
+    {
+        if (currentCar != null)
+        {
+            Destroy(currentCar);   // DestroyImmediate(currentCar);  - not runtime safe
+            currentCar = null;
+        }
+
         selectedCarIndex = index;
+        StartCoroutine(SpawnCarNextFrame());
+        // currentCar = Instantiate(cars[selectedCarIndex], carDisplayPoint.position, carDisplayPoint.rotation);
+    }
+
+    private IEnumerator SpawnCarNextFrame()
+    {
+        yield return null;
         currentCar = Instantiate(cars[selectedCarIndex], carDisplayPoint.position, carDisplayPoint.rotation);
     }
 

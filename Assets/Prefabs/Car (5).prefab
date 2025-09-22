@@ -912,6 +912,7 @@ MonoBehaviour:
   motorForce: 300
   steerAngle: 30
   brakeForce: 1000
+  endRaceBrakeForce: 7
 --- !u!1 &8065277795867643772
 GameObject:
   m_ObjectHideFlags: 0
