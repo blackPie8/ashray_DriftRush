@@ -368,7 +368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8119495536881403525, guid: eebfba6516426485cb3c4b2f86047dfa, type: 3}
       propertyPath: endRaceBrakeForce
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1997615223918851248, guid: eebfba6516426485cb3c4b2f86047dfa, type: 3}
       propertyPath: m_Name
@@ -1112,7 +1112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2945617725170095243, guid: 0c045f69d34d44ebfb058a32cb95c676, type: 3}
       propertyPath: endRaceBrakeForce
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3354092641410146388, guid: 0c045f69d34d44ebfb058a32cb95c676, type: 3}
       propertyPath: m_Emitting
@@ -1356,7 +1356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9118584538122422266, guid: a0564fc96a0d34492865b3ee2ad92342, type: 3}
       propertyPath: endRaceBrakeForce
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1554,7 +1554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2607870668701317431, guid: 06f59e158209b42a7afcdf026a2ace28, type: 3}
       propertyPath: endRaceBrakeForce
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6845275598834938697, guid: 06f59e158209b42a7afcdf026a2ace28, type: 3}
       propertyPath: m_Name
@@ -1733,7 +1733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5070284048725379272, guid: a1353c96ad5a74122b4b57d9100bc14c, type: 3}
       propertyPath: endRaceBrakeForce
-      value: 7
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -5070284048725379272, guid: a1353c96ad5a74122b4b57d9100bc14c, type: 3}
       propertyPath: rearLeftTrailRenderer

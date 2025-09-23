@@ -23,11 +23,14 @@ public class PhysicsCarMovement : MonoBehaviour
     [SerializeField] private float motorForce = 300f;
     [SerializeField] private float steerAngle = 30f;
     [SerializeField] private float brakeForce = 1000f;
-    [SerializeField] private float endRaceBrakeForce = 7f;
+    [SerializeField] private float endRaceBrakeForce = 10f;
     private bool isBraking = false;
     private Rigidbody rb;
-    float verticalInput;
-    float horizontalInput;
+    private float verticalInput;
+    private float horizontalInput;
+    private bool drifting;
+    public bool isDrifting() => drifting;
+
 
     void Awake()
     {
@@ -134,6 +137,8 @@ public class PhysicsCarMovement : MonoBehaviour
             bool leftDrifting = Math.Abs(leftHit.sidewaysSlip) > 0.2f;
             bool rightDrifting = Math.Abs(rightHit.sidewaysSlip) > 0.2f;
 
+            drifting = leftDrifting || rightDrifting;
+
             rearLeftTrailRenderer.emitting = leftDrifting;
             rearRightTrailRenderer.emitting = rightDrifting;
 
@@ -172,7 +177,7 @@ public class PhysicsCarMovement : MonoBehaviour
     {
         rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, Vector3.zero, endRaceBrakeForce * Time.fixedDeltaTime);
 
-        if (rb.linearVelocity.magnitude < 0.1f)
+        if (rb.linearVelocity.magnitude < 1f)
         {
             rb.linearVelocity = Vector3.zero;
             isBraking = false;

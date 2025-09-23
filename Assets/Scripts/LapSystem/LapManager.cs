@@ -1,4 +1,6 @@
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LapManager : MonoBehaviour
 {
@@ -126,5 +128,15 @@ public class LapManager : MonoBehaviour
     public float GetTotalTime()
     {
         return totalTime;
+    }
+    public void RestartGame()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void QuitGame()
+    {
+        Debug.Log("Quit Application");
+        Application.Quit();
     }
 }
